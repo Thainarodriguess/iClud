@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#B5D4E2"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="30dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="25dp"
+        android:text="Sobre o jogo"
+        android:textColor="#2A3F55"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="35dp"
+        android:gravity="center"
+        android:lineSpacingExtra="7dp"
+        android:text="O iClud é um jogo educativo de palavras cruzadas para crianças.
+
+O objetivo é aprender palavras e sílabas de uma maneira divertida e tranquila.
+
+Em cada nível, a criança deve arrastar as sílabas que aparecem nas bolhas e encaixá-las nos espaços corretos para formar as palavras.
+
+O jogo utiliza cores suaves, uma interface simples e poucos elementos na tela, buscando facilitar a concentração durante a atividade.
+
+São quatro níveis com palavras simples. A dificuldade aumenta gradualmente.
+
+Boa diversão e bons estudos!"
+        android:textColor="#333333"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/btnVoltar"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#D1E0E8"
+        android:text="VOLTAR"
+        android:textColor="#2F3E46"
+        android:textSize="13sp" />
+
+</LinearLayout>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#B5D4E2"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="30dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:text="🎉"
+        android:textSize="45sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:text="Parabéns!"
+        android:textColor="#2A3F55"
+        android:textSize="28sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:text="Você completou todos os níveis!"
+        android:textColor="#4A5859"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/txtPontuacaoFinal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="35dp"
+        android:gravity="center"
+        android:text="Pontuação final: 100 pontos"
+        android:textColor="#4A5859"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btnMenuPrincipal"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#D1E0E8"
+        android:text="MENU PRINCIPAL"
+        android:textColor="#2F3E46"
+        android:textSize="14sp" />
+
+</LinearLayout>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#B5D4E2"
+    android:padding="30dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:text="✓"
+            android:textColor="#5B8068"
+            android:textSize="55sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtMensagem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:lineSpacingExtra="5dp"
+            android:text="Parabéns!
+Você passou do nível 1!"
+            android:textColor="#2A3F55"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtPontuacao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="35dp"
+            android:gravity="center"
+            android:lineSpacingExtra="5dp"
+            android:text="Sua pontuação
+10 pontos"
+            android:textColor="#4A5859"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/btnProximaFase"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#D1E0E8"
+            android:text="PRÓXIMO NÍVEL"
+            android:textColor="#2F3E46"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+</RelativeLayout>
