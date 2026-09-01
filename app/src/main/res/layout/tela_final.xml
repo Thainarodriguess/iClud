@@ -1,57 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#B5D4E2"
-    android:gravity="center"
-    android:orientation="vertical"
-    android:padding="30dp">
+    android:background="@color/fundo_principal"
+    android:padding="24dp">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
-        android:text="🎉"
-        android:textSize="45sp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
-        android:text="Parabéns!"
-        android:textColor="#2A3F55"
-        android:textSize="28sp"
-        android:textStyle="bold" />
-
-    <TextView
+    <LinearLayout
+        android:id="@+id/blocoFinal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
+        android:layout_centerInParent="true"
         android:gravity="center"
-        android:text="Você completou todos os níveis!"
-        android:textColor="#4A5859"
-        android:textSize="18sp" />
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/txtPontuacaoFinal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="35dp"
-        android:gravity="center"
-        android:text="Pontuação final: 100 pontos"
-        android:textColor="#4A5859"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+        <TextView
+            android:id="@+id/txtParabens"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Parabéns!"
+            android:textColor="@color/coral"
+            android:textSize="42sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtConclusao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:gravity="center"
+            android:text="Você completou o iClud!"
+            android:textColor="@color/titulo"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/btnMenuPrincipal"
-        android:layout_width="220dp"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#D1E0E8"
-        android:text="MENU PRINCIPAL"
-        android:textColor="#2F3E46"
-        android:textSize="14sp" />
+        android:layout_width="240dp"
+        android:layout_height="52dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="55dp"
+        android:backgroundTint="@color/botao_verde"
+        android:text="VOLTAR AO MENU PRINCIPAL"
+        android:textColor="@color/texto_botao"
+        android:textSize="12sp"
+        android:textStyle="bold" />
 
-</LinearLayout>
+</RelativeLayout>

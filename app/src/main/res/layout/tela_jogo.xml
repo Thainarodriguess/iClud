@@ -4,19 +4,35 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#B5D4E2"
+    android:background="@color/fundo_principal"
     android:padding="16dp">
+
+
+    <TextView
+        android:id="@+id/txt_nivel_jogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
+        android:text="Nível 1"
+        android:textColor="@color/titulo"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
 
     <TextView
         android:id="@+id/txtTempo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
+        android:layout_marginEnd="8dp"
         android:layout_marginTop="12dp"
         android:text="Tempo: 0s"
-        android:textColor="#2A3F55"
-        android:textSize="13sp"
+        android:textColor="@color/titulo"
+        android:textSize="14sp"
         android:textStyle="bold" />
+
 
     <GridLayout
         android:id="@+id/gridDinamico"
@@ -24,115 +40,129 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:gravity="center"
-        android:padding="12dp" />
+        android:padding="8dp" />
+
 
     <TextView
         android:id="@+id/bolha1"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="62dp"
+        android:layout_height="62dp"
         android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="20dp"
-        android:layout_marginBottom="90dp"
+        android:layout_below="@id/txt_nivel_jogo"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="55dp"
         android:background="@drawable/fundo_bolha"
         android:gravity="center"
-        android:textColor="#2D3748"
+        android:textColor="@color/titulo"
+        android:textSize="16sp"
         android:textStyle="bold"
         android:visibility="gone" />
+
 
     <TextView
         android:id="@+id/bolha2"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="80dp"
-        android:layout_marginBottom="30dp"
+        android:layout_width="62dp"
+        android:layout_height="62dp"
+        android:layout_below="@id/txt_nivel_jogo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="35dp"
         android:background="@drawable/fundo_bolha"
         android:gravity="center"
-        android:textColor="#2D3748"
+        android:textColor="@color/titulo"
+        android:textSize="16sp"
         android:textStyle="bold"
         android:visibility="gone" />
 
+
     <TextView
         android:id="@+id/bolha3"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="62dp"
+        android:layout_height="62dp"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@id/txtTempo"
+        android:layout_marginEnd="18dp"
+        android:layout_marginTop="55dp"
+        android:background="@drawable/fundo_bolha"
+        android:gravity="center"
+        android:textColor="@color/titulo"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:visibility="gone" />
+
+
+    <TextView
+        android:id="@+id/bolha4"
+        android:layout_width="62dp"
+        android:layout_height="62dp"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/fundo_bolha"
+        android:gravity="center"
+        android:textColor="@color/titulo"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:visibility="gone" />
+
+
+    <TextView
+        android:id="@+id/bolha5"
+        android:layout_width="62dp"
+        android:layout_height="62dp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/fundo_bolha"
+        android:gravity="center"
+        android:textColor="@color/titulo"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:visibility="gone" />
+
+
+    <TextView
+        android:id="@+id/bolha6"
+        android:layout_width="62dp"
+        android:layout_height="62dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="35dp"
+        android:layout_marginBottom="80dp"
+        android:background="@drawable/fundo_bolha"
+        android:gravity="center"
+        android:textColor="@color/titulo"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:visibility="gone" />
+
+
+    <TextView
+        android:id="@+id/bolha7"
+        android:layout_width="62dp"
+        android:layout_height="62dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="40dp"
         android:background="@drawable/fundo_bolha"
         android:gravity="center"
-        android:textColor="#2D3748"
+        android:textColor="@color/titulo"
+        android:textSize="16sp"
         android:textStyle="bold"
         android:visibility="gone" />
 
-    <TextView
-        android:id="@+id/bolha4"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="80dp"
-        android:layout_marginBottom="30dp"
-        android:background="@drawable/fundo_bolha"
-        android:gravity="center"
-        android:textColor="#2D3748"
-        android:textStyle="bold"
-        android:visibility="gone" />
-
-    <TextView
-        android:id="@+id/bolha5"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="90dp"
-        android:background="@drawable/fundo_bolha"
-        android:gravity="center"
-        android:textColor="#2D3748"
-        android:textStyle="bold"
-        android:visibility="gone" />
-
-    <TextView
-        android:id="@+id/bolha6"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_alignParentStart="true"
-        android:layout_below="@id/txtTempo"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="30dp"
-        android:background="@drawable/fundo_bolha"
-        android:gravity="center"
-        android:textColor="#2D3748"
-        android:textStyle="bold"
-        android:visibility="gone" />
-
-    <TextView
-        android:id="@+id/bolha7"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_alignParentEnd="true"
-        android:layout_below="@id/txtTempo"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="30dp"
-        android:background="@drawable/fundo_bolha"
-        android:gravity="center"
-        android:textColor="#2D3748"
-        android:textStyle="bold"
-        android:visibility="gone" />
 
     <TextView
         android:id="@+id/bolha8"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="62dp"
+        android:layout_height="62dp"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="100dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginBottom="80dp"
         android:background="@drawable/fundo_bolha"
         android:gravity="center"
-        android:textColor="#2D3748"
+        android:textColor="@color/titulo"
+        android:textSize="16sp"
         android:textStyle="bold"
         android:visibility="gone" />
 

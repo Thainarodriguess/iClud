@@ -1,5 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+
+    <color name="fundo_principal">#DDEFF7</color>
+
+
+    <color name="titulo">#344A5E</color>
+    <color name="texto">#405467</color>
+    <color name="texto_botao">#263B4D</color>
+
+
+    <color name="botao_verde">#9BCFB0</color>
+
+    <color name="bolha">#A9DDF5</color>
+    <color name="borda_bolha">#87C7E5</color>
+
+
+    <color name="slot_vazio">#FAFCFD</color>
+    <color name="borda_slot">#BDD3DE</color>
+
+    <color name="slot_correto">#C7E8C8</color>
+    <color name="borda_slot_correto">#A6CFA8</color>
+
+
+    <color name="estrela_ativa">#F5D675</color>
+    <color name="estrela_inativa">#DCE5EA</color>
+
+    <color name="coral">#EE7777</color>
+
 </resources>

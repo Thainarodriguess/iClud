@@ -10,32 +10,40 @@ public class TelaPrincipal extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.tela_principal);
 
-        Button btnIniciar = findViewById(R.id.btnIniciar);
-        Button btnSobre = findViewById(R.id.btnSobre);
+        Button btnIniciar =
+                findViewById(R.id.btnIniciar);
+
+        Button btnSobre =
+                findViewById(R.id.btnSobre);
 
         btnIniciar.setOnClickListener(v -> {
 
-            Intent intent = new Intent(
-                    TelaPrincipal.this,
-                    TelaJogo.class
-            );
+            Intent intent =
+                    new Intent(
+                            TelaPrincipal.this,
+                            TelaJogo.class
+                    );
 
-            intent.putExtra("FASE_ATUAL", 1);
-            intent.putExtra("PONTUACAO", 0);
+            intent.putExtra(
+                    "FASE_ATUAL",
+                    1
+            );
 
             startActivity(intent);
         });
 
         btnSobre.setOnClickListener(v -> {
 
-            Intent intent = new Intent(
-                    TelaPrincipal.this,
-                    TelaSobre.class
-            );
+            Intent intent =
+                    new Intent(
+                            TelaPrincipal.this,
+                            TelaSobre.class
+                    );
 
             startActivity(intent);
         });
