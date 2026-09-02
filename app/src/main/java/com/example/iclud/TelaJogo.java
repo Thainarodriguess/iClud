@@ -24,19 +24,14 @@ public class TelaJogo extends AppCompatActivity {
 
     private TextView txtTempo;
     private TextView txtNivelJogo;
-
     private GridLayout gridDinamico;
 
     private final Handler handler = new Handler();
-
     private Runnable runnable;
 
     private int segundos = 0;
-
     private int faseAtual;
-
     private int acertosNaFase = 0;
-
     private int totalBlocosDaFase = 0;
 
     private TextView[] bolhas;
@@ -54,24 +49,35 @@ public class TelaJogo extends AppCompatActivity {
 
     class Cruzadinha {
 
-        Palavra horizontal;
+        Palavra horizontalPrincipal;
         Palavra vertical;
+        Palavra horizontalSecundaria;
 
-        int indiceHorizontal;
-        int indiceVertical;
+        int indiceHorizontalPrincipal;
+        int indiceVerticalPrincipal;
+
+        int indiceHorizontalSecundaria;
+        int indiceVerticalSecundaria;
 
         Cruzadinha(
-                Palavra horizontal,
+                Palavra horizontalPrincipal,
                 Palavra vertical,
-                int indiceHorizontal,
-                int indiceVertical
+                Palavra horizontalSecundaria,
+                int indiceHorizontalPrincipal,
+                int indiceVerticalPrincipal,
+                int indiceHorizontalSecundaria,
+                int indiceVerticalSecundaria
         ) {
 
-            this.horizontal = horizontal;
+            this.horizontalPrincipal = horizontalPrincipal;
             this.vertical = vertical;
+            this.horizontalSecundaria = horizontalSecundaria;
 
-            this.indiceHorizontal = indiceHorizontal;
-            this.indiceVertical = indiceVertical;
+            this.indiceHorizontalPrincipal = indiceHorizontalPrincipal;
+            this.indiceVerticalPrincipal = indiceVerticalPrincipal;
+
+            this.indiceHorizontalSecundaria = indiceHorizontalSecundaria;
+            this.indiceVerticalSecundaria = indiceVerticalSecundaria;
         }
     }
 
@@ -79,7 +85,6 @@ public class TelaJogo extends AppCompatActivity {
 
         int linha;
         int coluna;
-
         String silaba;
 
         Celula(
@@ -103,14 +108,22 @@ public class TelaJogo extends AppCompatActivity {
 
         txtTempo = findViewById(R.id.txtTempo);
 
-        txtNivelJogo = findViewById(R.id.txt_nivel_jogo);
+        txtNivelJogo =
+                findViewById(
+                        R.id.txt_nivel_jogo
+                );
 
-        gridDinamico = findViewById(R.id.gridDinamico);
+        gridDinamico =
+                findViewById(
+                        R.id.gridDinamico
+                );
 
-        faseAtual = getIntent().getIntExtra(
-                "FASE_ATUAL",
-                1
-        );
+        faseAtual =
+                getIntent()
+                        .getIntExtra(
+                                "FASE_ATUAL",
+                                1
+                        );
 
         txtNivelJogo.setText(
                 "Nível " + faseAtual
@@ -137,7 +150,9 @@ public class TelaJogo extends AppCompatActivity {
 
         segundos = 0;
 
-        txtTempo.setText("Tempo: 0s");
+        txtTempo.setText(
+                "Tempo: 0s"
+        );
 
         runnable = new Runnable() {
 
@@ -147,7 +162,11 @@ public class TelaJogo extends AppCompatActivity {
                 segundos++;
 
                 txtTempo.setText(
-                        "Tempo: " + segundos + "s"
+                        "Tempo: "
+                                +
+                                segundos
+                                +
+                                "s"
                 );
 
                 handler.postDelayed(
@@ -174,12 +193,17 @@ public class TelaJogo extends AppCompatActivity {
                         faseAtual
                 );
 
+        List<Celula> celulas =
+                criarCelulas(
+                        cruzadinha
+                );
+
         criarGrade(
-                cruzadinha
+                celulas
         );
 
         carregarBolhas(
-                cruzadinha
+                celulas
         );
     }
 
@@ -203,8 +227,16 @@ public class TelaJogo extends AppCompatActivity {
                             "PO"
                     ),
 
+                    new Palavra(
+                            "POTE",
+                            "PO",
+                            "TE"
+                    ),
+
                     1,
-                    0
+                    0,
+                    0,
+                    1
             );
         }
 
@@ -225,8 +257,16 @@ public class TelaJogo extends AppCompatActivity {
                             "CO"
                     ),
 
+                    new Palavra(
+                            "COPO",
+                            "CO",
+                            "PO"
+                    ),
+
                     1,
-                    0
+                    0,
+                    0,
+                    2
             );
         }
 
@@ -246,8 +286,16 @@ public class TelaJogo extends AppCompatActivity {
                             "TO"
                     ),
 
+                    new Palavra(
+                            "PANO",
+                            "PA",
+                            "NO"
+                    ),
+
                     1,
-                    1
+                    1,
+                    0,
+                    0
             );
         }
 
@@ -267,95 +315,162 @@ public class TelaJogo extends AppCompatActivity {
                         "DA"
                 ),
 
+                new Palavra(
+                        "DADO",
+                        "DA",
+                        "DO"
+                ),
+
                 0,
-                0
+                0,
+                0,
+                2
         );
     }
 
-    private void criarGrade(
+    private List<Celula> criarCelulas(
             Cruzadinha cruzadinha
     ) {
 
         List<Celula> celulas =
                 new ArrayList<>();
 
-        Palavra horizontal =
-                cruzadinha.horizontal;
-
-        Palavra vertical =
-                cruzadinha.vertical;
-
-        int cruzamentoHorizontal =
-                cruzadinha.indiceHorizontal;
-
-        int cruzamentoVertical =
-                cruzadinha.indiceVertical;
-
         for (
                 int i = 0;
-                i < horizontal.silabas.length;
+                i
+                        <
+                        cruzadinha
+                                .horizontalPrincipal
+                                .silabas
+                                .length;
                 i++
         ) {
 
-            int coluna =
-                    i - cruzamentoHorizontal;
+            adicionarCelula(
 
-            celulas.add(
+                    celulas,
 
-                    new Celula(
-                            0,
-                            coluna,
-                            horizontal.silabas[i]
-                    )
+                    0,
+
+                    i
+                            -
+                            cruzadinha
+                                    .indiceHorizontalPrincipal,
+
+                    cruzadinha
+                            .horizontalPrincipal
+                            .silabas[i]
             );
         }
 
         for (
                 int i = 0;
-                i < vertical.silabas.length;
+                i
+                        <
+                        cruzadinha
+                                .vertical
+                                .silabas
+                                .length;
                 i++
         ) {
 
-            int linha =
-                    i - cruzamentoVertical;
+            adicionarCelula(
 
-            int coluna = 0;
+                    celulas,
 
-            String silaba =
-                    vertical.silabas[i];
+                    i
+                            -
+                            cruzadinha
+                                    .indiceVerticalPrincipal,
 
-            Celula existente =
-                    encontrarCelula(
-                            celulas,
-                            linha,
-                            coluna
-                    );
+                    0,
 
-            if (existente != null) {
+                    cruzadinha
+                            .vertical
+                            .silabas[i]
+            );
+        }
 
-                if (
-                        !existente.silaba.equalsIgnoreCase(
-                                silaba
-                        )
-                ) {
+        int linhaSecundaria =
+                cruzadinha.indiceVerticalSecundaria
+                        -
+                        cruzadinha.indiceVerticalPrincipal;
 
-                    throw new IllegalStateException(
-                            "As palavras da cruzadinha não possuem sílabas compatíveis."
-                    );
-                }
+        for (
+                int i = 0;
+                i
+                        <
+                        cruzadinha
+                                .horizontalSecundaria
+                                .silabas
+                                .length;
+                i++
+        ) {
 
-            } else {
+            adicionarCelula(
 
-                celulas.add(
+                    celulas,
 
-                        new Celula(
-                                linha,
-                                coluna,
-                                silaba
-                        )
+                    linhaSecundaria,
+
+                    i
+                            -
+                            cruzadinha
+                                    .indiceHorizontalSecundaria,
+
+                    cruzadinha
+                            .horizontalSecundaria
+                            .silabas[i]
+            );
+        }
+
+        return celulas;
+    }
+
+    private void adicionarCelula(
+            List<Celula> celulas,
+            int linha,
+            int coluna,
+            String silaba
+    ) {
+
+        Celula existente =
+                encontrarCelula(
+                        celulas,
+                        linha,
+                        coluna
+                );
+
+        if (existente != null) {
+
+            if (
+                    !existente
+                            .silaba
+                            .equalsIgnoreCase(
+                                    silaba
+                            )
+            ) {
+
+                throw new IllegalStateException(
+                        "As palavras da cruzadinha não possuem sílabas compatíveis."
                 );
             }
+
+            return;
         }
+
+        celulas.add(
+                new Celula(
+                        linha,
+                        coluna,
+                        silaba
+                )
+        );
+    }
+
+    private void criarGrade(
+            List<Celula> celulas
+    ) {
 
         int menorLinha = 0;
         int maiorLinha = 0;
@@ -363,7 +478,10 @@ public class TelaJogo extends AppCompatActivity {
         int menorColuna = 0;
         int maiorColuna = 0;
 
-        for (Celula celula : celulas) {
+        for (
+                Celula celula :
+                celulas
+        ) {
 
             menorLinha =
                     Math.min(
@@ -392,13 +510,17 @@ public class TelaJogo extends AppCompatActivity {
 
         int quantidadeLinhas =
                 maiorLinha
-                        - menorLinha
-                        + 1;
+                        -
+                        menorLinha
+                        +
+                        1;
 
         int quantidadeColunas =
                 maiorColuna
-                        - menorColuna
-                        + 1;
+                        -
+                        menorColuna
+                        +
+                        1;
 
         gridDinamico.setRowCount(
                 quantidadeLinhas
@@ -415,12 +537,16 @@ public class TelaJogo extends AppCompatActivity {
 
         int tamanhoBloco =
                 (int) (
-                        60 * escala
+                        60
+                                *
+                                escala
                 );
 
         int margem =
                 (int) (
-                        4 * escala
+                        4
+                                *
+                                escala
                 );
 
         for (
@@ -465,12 +591,16 @@ public class TelaJogo extends AppCompatActivity {
 
                 params.rowSpec =
                         GridLayout.spec(
-                                linha - menorLinha
+                                linha
+                                        -
+                                        menorLinha
                         );
 
                 params.columnSpec =
                         GridLayout.spec(
-                                coluna - menorColuna
+                                coluna
+                                        -
+                                        menorColuna
                         );
 
                 slot.setLayoutParams(
@@ -490,13 +620,18 @@ public class TelaJogo extends AppCompatActivity {
                         Typeface.BOLD
                 );
 
-                if (celula != null) {
+                if (
+                        celula
+                                !=
+                                null
+                ) {
 
                     slot.setBackgroundResource(
                             R.drawable.fundo_slot
                     );
 
                     slot.setTextColor(
+
                             ContextCompat.getColor(
                                     this,
                                     R.color.titulo
@@ -526,11 +661,7 @@ public class TelaJogo extends AppCompatActivity {
         }
 
         totalBlocosDaFase =
-                horizontal.silabas.length
-                        +
-                        vertical.silabas.length
-                        -
-                        1;
+                celulas.size();
     }
 
     private Celula encontrarCelula(
@@ -539,12 +670,19 @@ public class TelaJogo extends AppCompatActivity {
             int coluna
     ) {
 
-        for (Celula celula : celulas) {
+        for (
+                Celula celula :
+                celulas
+        ) {
 
             if (
-                    celula.linha == linha
+                    celula.linha
+                            ==
+                            linha
                             &&
-                            celula.coluna == coluna
+                            celula.coluna
+                                    ==
+                                    coluna
             ) {
 
                 return celula;
@@ -555,43 +693,30 @@ public class TelaJogo extends AppCompatActivity {
     }
 
     private void carregarBolhas(
-            Cruzadinha cruzadinha
+            List<Celula> celulas
     ) {
 
         List<String> silabas =
                 new ArrayList<>();
 
         for (
-                String silaba :
-                cruzadinha.horizontal.silabas
+                Celula celula :
+                celulas
         ) {
 
             silabas.add(
-                    silaba
+                    celula.silaba
             );
-        }
-
-        for (
-                int i = 0;
-                i < cruzadinha.vertical.silabas.length;
-                i++
-        ) {
-
-            if (
-                    i != cruzadinha.indiceVertical
-            ) {
-
-                silabas.add(
-                        cruzadinha.vertical.silabas[i]
-                );
-            }
         }
 
         Collections.shuffle(
                 silabas
         );
 
-        for (TextView bolha : bolhas) {
+        for (
+                TextView bolha :
+                bolhas
+        ) {
 
             bolha.setVisibility(
                     View.GONE
@@ -651,7 +776,9 @@ public class TelaJogo extends AppCompatActivity {
                         ClipData data =
                                 ClipData.newPlainText(
                                         "silaba",
-                                        texto.getText().toString()
+                                        texto
+                                                .getText()
+                                                .toString()
                                 );
 
                         View.DragShadowBuilder shadowBuilder =
@@ -689,7 +816,8 @@ public class TelaJogo extends AppCompatActivity {
 
                         case DragEvent.ACTION_DRAG_STARTED:
 
-                            return event.getClipDescription()
+                            return event
+                                    .getClipDescription()
                                     !=
                                     null;
 
@@ -743,7 +871,9 @@ public class TelaJogo extends AppCompatActivity {
                                                         .getLocalState();
 
                                 if (
-                                        origem != null
+                                        origem
+                                                !=
+                                                null
                                 ) {
 
                                     origem.setVisibility(
@@ -799,7 +929,9 @@ public class TelaJogo extends AppCompatActivity {
     private void concluirFase() {
 
         if (
-                runnable != null
+                runnable
+                        !=
+                        null
         ) {
 
             handler.removeCallbacks(
@@ -811,7 +943,9 @@ public class TelaJogo extends AppCompatActivity {
                 calcularPontuacao();
 
         if (
-                faseAtual >= 4
+                faseAtual
+                        >=
+                        4
         ) {
 
             Intent intent =
@@ -858,7 +992,9 @@ public class TelaJogo extends AppCompatActivity {
         super.onDestroy();
 
         if (
-                runnable != null
+                runnable
+                        !=
+                        null
         ) {
 
             handler.removeCallbacks(
