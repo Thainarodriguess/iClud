@@ -34,6 +34,11 @@ Os cenários de teste foram estruturados utilizando a abordagem BDD (Behavior-Dr
 
 **Status:** Aprovado
 
+**Evidência:**
+
+<p align="center">
+  <img src="evidencias/ct02.png" alt="CT02 - Sílaba correta encaixada" width="300">
+</p>
 ---
 
 ## CT03 – Rejeitar uma sílaba em posição incorreta
@@ -60,6 +65,11 @@ Os cenários de teste foram estruturados utilizando a abordagem BDD (Behavior-Dr
 
 **Status:** Aprovado
 
+**Evidência:**
+
+<p align="center">
+  <img src="evidencias/ct04.png" alt="CT04 - Pontuação do Nível 1" width="300">
+</p>
 ---
 
 ## CT05 – Avançar do Nível 1 para o Nível 2
@@ -86,6 +96,11 @@ Os cenários de teste foram estruturados utilizando a abordagem BDD (Behavior-Dr
 
 **Status:** Aprovado
 
+**Evidência:**
+
+<p align="center">
+  <img src="evidencias/ct06.png" alt="CT06 - Pontuação do Nível 2" width="300">
+</p>
 ---
 
 ## CT07 – Avançar do Nível 2 para o Nível 3
@@ -112,6 +127,11 @@ Os cenários de teste foram estruturados utilizando a abordagem BDD (Behavior-Dr
 
 **Status:** Aprovado
 
+**Evidência:**
+
+<p align="center">
+  <img src="evidencias/ct08.png" alt="CT08 - Pontuação do Nível 3" width="300">
+</p>
 ---
 
 ## CT09 – Avançar do Nível 3 para o Nível 4
@@ -140,6 +160,11 @@ Os cenários de teste foram estruturados utilizando a abordagem BDD (Behavior-Dr
 
 **Status:** Aprovado
 
+**Evidência:**
+
+<p align="center">
+  <img src="evidencias/ct10.png" alt="CT10 - Conclusão do jogo" width="300">
+</p>
 ---
 
 ## CT11 – Retornar ao menu principal após concluir o jogo
@@ -164,6 +189,11 @@ Os cenários de teste foram estruturados utilizando a abordagem BDD (Behavior-Dr
 
 **Status:** Aprovado
 
+**Evidência:**
+
+<p align="center">
+  <img src="evidencias/ct12.png" alt="CT12 - Tela Sobre o jogo" width="300">
+</p>
 ---
 
 ## CT13 – Retornar da tela “Sobre o jogo” para o menu principal
