@@ -17,7 +17,7 @@ Os cenários de teste foram estruturados utilizando a abordagem BDD (Behavior-Dr
 
 **Evidência:**
 
-![CT01 - Nível 1 carregado](evidencias/ct01.png)
+<img src="evidencias/ct01.png" alt="CT01 - Nível 1 carregado" width="300">
 
 
 ---
